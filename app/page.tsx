@@ -1,65 +1,86 @@
-import Image from "next/image";
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="home-page">
+      {/* Hero */}
+      <section className="hero">
+        <div className="hero-text">
+          <h1>Discover Handcrafted Treasures</h1>
+          <p>
+            Handcrafted Haven connects you with artisans who pour their heart into
+            every unique piece. Support local creators and find something truly one-of-a-kind.
           </p>
+          <div className="hero-actions">
+            <a href="/products" className="btn btn-primary">
+              Browse Products
+            </a>
+            <a href="/sellers" className="btn btn-secondary">
+              Meet the Artisans
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="hero-image">
+          {/* Placeholder: later use real images */}
+          <div className="hero-placeholder-card">Handmade ceramics</div>
+          <div className="hero-placeholder-card offset">Textile art</div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Featured Categories */}
+      <section className="section">
+        <h2>Shop by Category</h2>
+        <div className="category-grid">
+          <article className="category-card">Jewelry</article>
+          <article className="category-card">Home Decor</article>
+          <article className="category-card">Art &amp; Prints</article>
+          <article className="category-card">Textiles</article>
+        </div>
+      </section>
+
+      {/* Featured Products (placeholder data) */}
+      <section className="section">
+        <h2>Featured Handcrafted Items</h2>
+        <div className="product-grid">
+          <article className="product-card">
+            <div className="product-image" />
+            <h3>Hand-thrown Ceramic Mug</h3>
+            <p className="price">$32.00</p>
+            <p className="rating">★★★★☆ (23)</p>
+          </article>
+          <article className="product-card">
+            <div className="product-image" />
+            <h3>Embroidered Wall Hanging</h3>
+            <p className="price">$58.00</p>
+            <p className="rating">★★★★★ (12)</p>
+          </article>
+          <article className="product-card">
+            <div className="product-image" />
+            <h3>Handwoven Throw Blanket</h3>
+            <p className="price">$85.00</p>
+            <p className="rating">★★★★☆ (9)</p>
+          </article>
+        </div>
+      </section>
+
+      {/* Featured Sellers */}
+      <section className="section">
+        <h2>Featured Artisans</h2>
+        <div className="seller-grid">
+          <article className="seller-card">
+            <div className="seller-avatar" />
+            <div>
+              <h3>Clay &amp; Co.</h3>
+              <p>Small-batch ceramics inspired by nature.</p>
+            </div>
+          </article>
+          <article className="seller-card">
+            <div className="seller-avatar" />
+            <div>
+              <h3>Threaded Stories</h3>
+              <p>Textile art that tells a story in every stitch.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
   );
 }
