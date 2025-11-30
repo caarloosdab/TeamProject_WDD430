@@ -445,6 +445,132 @@ main.home-page,
   gap: 0.4rem;
 }
 
+/* Auth & forms */
+
+.auth-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  display: grid;
+  gap: 1.75rem;
+}
+
+.auth-header h1 {
+  margin: 0.2rem 0;
+  font-size: 2rem;
+}
+
+.auth-header .inline-links {
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.auth-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 1.25rem;
+}
+
+.form-card,
+.guide-card,
+.note-card {
+  background-color: white;
+  border-radius: 1.1rem;
+  padding: 1.25rem 1.4rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+.form-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.input-group {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.input-group label {
+  font-weight: 600;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  border: 1px solid #dfd4c5;
+  border-radius: 0.65rem;
+  padding: 0.75rem 0.85rem;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: #fffaf5;
+}
+
+.input-group textarea {
+  resize: vertical;
+}
+
+.checkbox-row {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.checkbox {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: var(--color-text);
+}
+
+.checkbox input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--color-primary);
+}
+
+.guide-card h2 {
+  margin-top: 0;
+}
+
+.step-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.step-list h3 {
+  margin: 0 0 0.2rem 0;
+}
+
+.note-card {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.inline-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.small {
+  font-size: 0.9rem;
+}
+
+.cta-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
 /* Mobile responsiveness */
 
 @media (max-width: 768px) {
@@ -477,3 +603,11 @@ main.home-page,
     align-items: flex-start;
   }
 }
+
+.auth-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .auth-shell {
+    padding: 1.5rem 1rem 3rem;
+  }

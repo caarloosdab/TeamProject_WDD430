@@ -45,6 +45,14 @@ export default function SellersPage() {
           Explore seller profiles, learn their craft, and shop collections that honor sustainable
           practices and thoughtful design.
         </p>
+        <div className="cta-row">
+          <Link className="btn btn-primary" href="/sellers/create">
+            Create your seller profile
+          </Link>
+          <Link className="btn btn-secondary" href="/auth/register">
+            Join as a buyer
+          </Link>
+        </div>
       </header>
 
       <section className="card-grid">
