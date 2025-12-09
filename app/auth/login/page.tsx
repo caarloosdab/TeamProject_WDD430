@@ -1,6 +1,10 @@
 import Link from "next/link";
+import { LoginForm } from "./LoginForm";
 
-export default function LoginPage() {
+export default function LoginPage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+  const redirectTo = typeof searchParams?.redirect === "string" ? searchParams.redirect : "/products";
+
+
   return (
     <main className="auth-shell">
       <div className="auth-header">
@@ -8,7 +12,7 @@ export default function LoginPage() {
         <h1>Sign in to continue</h1>
         <p className="muted">
           Access your saved favorites, manage orders, and stay updated with the makers you follow.
-          Authentication will be wired up soon — for now, explore the intended experience.
+          Authentication is now live — use the member credentials shared for testing.
         </p>
         <div className="inline-links">
           <span className="muted">New here?</span>
@@ -20,45 +24,7 @@ export default function LoginPage() {
 
       <div className="auth-grid">
         <section className="form-card">
-          <form className="form-grid" action="#" method="post">
-            <div className="input-group">
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="you@example.com"
-                autoComplete="email"
-                required
-              />
-            </div>
-            <div className="input-group">
-              <label htmlFor="password">Password</label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Enter your password"
-                autoComplete="current-password"
-                required
-              />
-            </div>
-            <div className="inline-links">
-              <label className="checkbox">
-                <input type="checkbox" name="remember" defaultChecked />
-                <span>Keep me signed in on this device</span>
-              </label>
-              <Link className="link" href="#">
-                Forgot password?
-              </Link>
-            </div>
-            <button type="submit" className="btn btn-primary btn-full">
-              Sign in
-            </button>
-            <p className="muted small">
-              We’ll connect this form to the authentication provider once the backend is configured.
-            </p>
-          </form>
+          <LoginForm redirectTo={redirectTo} />
         </section>
 
         <aside className="guide-card">

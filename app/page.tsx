@@ -64,6 +64,27 @@ const featuredSellers = [
   },
 ];
 
+const guarantees = [
+  {
+    title: "Verified makers",
+    copy: "Every featured seller is vetted for quality, responsible sourcing, and consistent craftsmanship.",
+  },
+  {
+    title: "Planet-friendly shipping",
+    copy: "Recyclable packaging, carbon-aware routes, and batch fulfillment keep deliveries sustainable.",
+  },
+  {
+    title: "Community-first policies",
+    copy: "Fair pay to artisans, transparent reviews, and responsive support keep our marketplace trustworthy.",
+  },
+];
+
+const seoHighlights = [
+  "Handcrafted marketplace connecting buyers with independent artisans.",
+  "Sustainable, small-batch goods with transparent sourcing details.",
+  "Easy discovery of trending categories, sellers, and curated drops.",
+];
+
 export default function HomePage() {
   return (
     <main className="home-page">
@@ -209,6 +230,52 @@ export default function HomePage() {
                   View profile
                 </Link>
               </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-header">
+          <div>
+            <p className="eyebrow">Assurance</p>
+            <h2>What you can count on</h2>
+            <p className="section-subtext">
+              Policies crafted to protect artisans, delight shoppers, and keep every delivery planet-friendly.
+            </p>
+          </div>
+          <Link className="link" href="/sellers">
+            Explore trusted sellers →
+          </Link>
+        </div>
+        <div className="card-grid">
+          {guarantees.map((item) => (
+            <article key={item.title} className="card">
+              <h3>{item.title}</h3>
+              <p className="muted">{item.copy}</p>
+              <div className="badge-row">
+                <span className="pill pill-secondary">Verified</span>
+                <span className="pill">Sustainable</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-header">
+          <div>
+            <p className="eyebrow">Search-friendly</p>
+            <h2>Shareable story in every visit</h2>
+            <p className="section-subtext">
+              Crafted copy, descriptive alt text, and clear navigation help search engines — and people — find what they love.
+            </p>
+          </div>
+        </div>
+        <div className="card-grid">
+          {seoHighlights.map((highlight) => (
+            <article key={highlight} className="card">
+              <p className="muted">{highlight}</p>
             </article>
           ))}
         </div>

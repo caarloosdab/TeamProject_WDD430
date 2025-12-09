@@ -16,6 +16,73 @@ body {
   color: var(--color-text);
 }
 
+.site-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-header__brand a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #c26a4a, #315c4f);
+  display: inline-block;
+}
+
+.brand-name {
+  font-size: 1.1rem;
+}
+
+.site-header__nav {
+  display: inline-flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.site-header__nav a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-header__nav a:hover {
+  color: var(--color-primary);
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: white;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+
+.user-name {
+  font-weight: 600;
+}
+
 main.home-page,
 .page-shell {
   max-width: 1200px;
@@ -574,6 +641,11 @@ main.home-page,
 /* Mobile responsiveness */
 
 @media (max-width: 768px) {
+.site-header {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+  }
+
   .hero {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -602,12 +674,13 @@ main.home-page,
     flex-direction: column;
     align-items: flex-start;
   }
-}
 
-.auth-grid {
+
+  .auth-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
   .auth-shell {
     padding: 1.5rem 1rem 3rem;
   }
+}

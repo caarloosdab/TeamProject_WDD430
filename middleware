@@ -1,0 +1,24 @@
+import { NextRequest, NextResponse } from "next/server";
+import { verifyToken } from "./lib/auth";
+
+const protectedRoutes = ["/products", "/sellers"];
+
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  const isProtected = protectedRoutes.some((route) => pathname.startsWith(route));
+
+  if (!isProtected) return NextResponse.next();
+
+  const token = request.cookies.get("hc_session")?.value;
+  const session = verifyToken(token);
+
+  if (session) return NextResponse.next();
+
+  const loginUrl = new URL("/auth/login", request.url);
+  loginUrl.searchParams.set("redirect", pathname);
+  return NextResponse.redirect(loginUrl);
+}
+
+export const config = {
+  matcher: ["/products/:path*", "/sellers/:path*"],
+};
