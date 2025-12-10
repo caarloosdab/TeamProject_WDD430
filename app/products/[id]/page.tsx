@@ -8,11 +8,13 @@ const currency = new Intl.NumberFormat("en-US", { style: "currency", currency: "
 export default async function ProductDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
+  
   const [product, reviews, session] = await Promise.all([
-    getProductById(params.id),
-    listReviews(params.id),
+    getProductById(id),
+    listReviews(id),
     getSession(),
   ]);
 

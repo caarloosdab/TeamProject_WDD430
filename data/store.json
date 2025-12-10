@@ -4,13 +4,18 @@
       "id": "ceramic-mug",
       "name": "Hand-thrown Ceramic Mug",
       "price": 32,
-      "rating": 4.5,
-      "reviews": 2,
+      "rating": 4.7,
+      "reviews": 3,
       "category": "Ceramics",
       "status": "New kiln batch",
       "seller": "Clay & Co.",
       "description": "Wheel-thrown mug finished in a matte sand glaze with a comfortable thumb-rest handle.",
-      "highlights": ["Stoneware clay", "Dishwasher safe", "12oz capacity", "Made in small batches"],
+      "highlights": [
+        "Stoneware clay",
+        "Dishwasher safe",
+        "12oz capacity",
+        "Made in small batches"
+      ],
       "image": "/products/ceramic-mug.jpg"
     },
     {
@@ -23,7 +28,12 @@
       "status": "Winter drop",
       "seller": "Threaded Stories",
       "description": "Cozy cotton-wool blend throw with a chevron weave and hand-knotted fringe.",
-      "highlights": ["Ethically sourced fibers", "50 x 60 inches", "Machine washable", "Naturally dyed"],
+      "highlights": [
+        "Ethically sourced fibers",
+        "50 x 60 inches",
+        "Machine washable",
+        "Naturally dyed"
+      ],
       "image": "/products/woven-throw.jpg"
     },
     {
@@ -36,7 +46,12 @@
       "status": "Limited run",
       "seller": "Threaded Stories",
       "description": "Botanical-inspired embroidery on organic linen, finished with a walnut dowel for easy hanging.",
-      "highlights": ["Organic linen", "Hand-stitched", "Ready to hang", "Limited run of 25"],
+      "highlights": [
+        "Organic linen",
+        "Hand-stitched",
+        "Ready to hang",
+        "Limited run of 25"
+      ],
       "image": "/products/wall-hanging.jpg"
     },
     {
@@ -49,7 +64,12 @@
       "status": "Bestseller",
       "seller": "Willow & Wick",
       "description": "Set of three clean-burning soy candles in cedar, pine, and amber scents inspired by the woods.",
-      "highlights": ["100% soy wax", "Reusable glass vessels", "Phthalate-free oils", "45+ hour burn"],
+      "highlights": [
+        "100% soy wax",
+        "Reusable glass vessels",
+        "Phthalate-free oils",
+        "45+ hour burn"
+      ],
       "image": "/products/candle-trio.jpg"
     },
     {
@@ -62,7 +82,12 @@
       "status": "Editor's pick",
       "seller": "North Star Metals",
       "description": "Three-pair set of hand-shaped sterling hoops in petite, classic, and bold sizes.",
-      "highlights": ["925 sterling silver", "Hypoallergenic", "Gift-ready packaging", "Lifetime polish"],
+      "highlights": [
+        "925 sterling silver",
+        "Hypoallergenic",
+        "Gift-ready packaging",
+        "Lifetime polish"
+      ],
       "image": "/products/silver-hoops.jpg"
     },
     {
@@ -75,11 +100,24 @@
       "status": "Small batch",
       "seller": "Clay & Co.",
       "description": "Footed planter with carved texture and drainage dish for happy houseplants.",
-      "highlights": ["Fits 6in pots", "Includes drainage", "Matte eggshell glaze", "Small batch"],
+      "highlights": [
+        "Fits 6in pots",
+        "Includes drainage",
+        "Matte eggshell glaze",
+        "Small batch"
+      ],
       "image": "/products/planter.jpg"
     }
   ],
   "reviews": [
+    {
+      "id": "668740aa-b200-4485-93af-610e1c3091b9",
+      "productId": "ceramic-mug",
+      "author": "Ava Stone",
+      "rating": 5,
+      "comment": "Great product",
+      "createdAt": "2025-12-10T03:44:51.691Z"
+    },
     {
       "id": "1",
       "productId": "ceramic-mug",
