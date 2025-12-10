@@ -415,6 +415,43 @@ main.home-page,
   align-items: center;
   justify-content: space-between;
   gap: 0.8rem;
+}.filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.filter-group select {
+  border: 1px solid #dfd4c5;
+  border-radius: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  background-color: #fffaf5;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.btn.is-active {
+  background-color: var(--color-secondary);
+  color: #ffffff;
+  border-color: var(--color-secondary);
 }
 
 .seller-card {
@@ -510,6 +547,107 @@ main.home-page,
 .detail-highlight {
   display: grid;
   gap: 0.4rem;
+}
+
+.review-section {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.review-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.review-score {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+  display: grid;
+  gap: 0.2rem;
+}
+
+.review-score strong {
+  font-size: 2rem;
+}
+
+.review-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 1.25rem;
+}
+
+.rating-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 60px;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.rating-bar {
+  background-color: #f0e4d5;
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.rating-bar span {
+  display: block;
+  height: 100%;
+  background-color: var(--color-primary);
+}
+
+.rating-label,
+.rating-count {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.review-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: flex-start;
+}
+
+.review-form {
+  background-color: white;
+  border-radius: 1.1rem;
+  padding: 1.25rem 1.4rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+  display: grid;
+  gap: 1rem;
+}
+
+.rating-choice {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.radio-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  background-color: #fff5eb;
+  border: 1px solid #f3decd;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.radio-pill input {
+  accent-color: var(--color-primary);
 }
 
 /* Auth & forms */
@@ -675,6 +813,29 @@ main.home-page,
     align-items: flex-start;
   }
 
+  .review-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rating-row {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "label count"
+      "bar bar";
+  }
+
+  .rating-label {
+    grid-area: label;
+  }
+
+  .rating-bar {
+    grid-area: bar;
+  }
+
+  .rating-count {
+    grid-area: count;
+    justify-self: end;
+  }
 
   .auth-grid {
     grid-template-columns: minmax(0, 1fr);

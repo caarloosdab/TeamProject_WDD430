@@ -1,11 +1,11 @@
-import Link from "next/link";
+import { ProductCatalog, type Product } from "@/components/product-catalog";
 
-const products = [
+const products: Product[] = [
   {
     id: "ceramic-mug",
     name: "Hand-thrown Ceramic Mug",
-    price: "$32.00",
-    rating: "4.8",
+    price: 32,
+    rating: 4.8,
     reviews: 23,
     category: "Ceramics",
     status: "New kiln batch",
@@ -13,8 +13,8 @@ const products = [
   {
     id: "woven-throw",
     name: "Handwoven Throw Blanket",
-    price: "$85.00",
-    rating: "4.7",
+    price: 85,
+    rating: 4.7,
     reviews: 9,
     category: "Textiles",
     status: "Winter drop",
@@ -22,8 +22,8 @@ const products = [
   {
     id: "wall-hanging",
     name: "Embroidered Wall Hanging",
-    price: "$58.00",
-    rating: "5.0",
+    price: 58,
+    rating: 5,
     reviews: 12,
     category: "Art & Prints",
     status: "Limited run",
@@ -31,8 +31,8 @@ const products = [
   {
     id: "candle-trio",
     name: "Woodland Soy Candle Trio",
-    price: "$42.00",
-    rating: "5.0",
+    price: 42,
+    rating: 5,
     reviews: 31,
     category: "Candles",
     status: "Bestseller",
@@ -40,8 +40,8 @@ const products = [
   {
     id: "silver-hoops",
     name: "Sterling Silver Hoop Set",
-    price: "$44.00",
-    rating: "4.9",
+    price: 44,
+    rating: 4.9,
     reviews: 17,
     category: "Jewelry",
     status: "Editor's pick",
@@ -49,15 +49,14 @@ const products = [
   {
     id: "planter",
     name: "Textured Stoneware Planter",
-    price: "$48.00",
-    rating: "4.6",
+    price: 48.00,
+    rating: 4.6,
     reviews: 8,
     category: "Home Decor",
     status: "Small batch",
   },
 ];
 
-const filters = ["All", "Ceramics", "Textiles", "Candles", "Jewelry", "Decor"];
 
 export default function ProductsPage() {
   return (
@@ -71,40 +70,7 @@ export default function ProductsPage() {
         </p>
       </header>
 
-      <section className="profile-header">
-        <div className="badge-row">
-          {filters.map((filter) => (
-            <button key={filter} className="btn btn-tertiary" aria-label={`Filter by ${filter}`}>
-              {filter}
-            </button>
-          ))}
-        </div>
-        <p className="muted">Showing {products.length} handcrafted items.</p>
-      </section>
-
-      <section>
-        <div className="product-grid">
-          {products.map((product) => (
-            <article key={product.id} className="product-card">
-              <div className="product-image" />
-              <div className="product-meta">
-                <span className="pill">{product.category}</span>
-                <h3>{product.name}</h3>
-                <p className="price">{product.price}</p>
-                <p className="rating">
-                  {product.rating} rating • {product.reviews} reviews
-                </p>
-              </div>
-              <div className="product-footer">
-                <Link className="btn btn-primary" href={`/products/${product.id}`}>
-                  View details
-                </Link>
-                <button className="btn btn-secondary">Save</button>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+      <ProductCatalog products={products} />
     </main>
   );
 }

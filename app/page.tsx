@@ -85,6 +85,25 @@ const seoHighlights = [
   "Easy discovery of trending categories, sellers, and curated drops.",
 ];
 
+const qualityPrinciples = [
+  {
+    title: "Performance-minded",
+    description: "Lean components, optimized assets, and semantic HTML keep the experience fast.",
+  },
+  {
+    title: "Accessible by design",
+    description: "WCAG-friendly color contrast, focusable controls, and clear labels welcome everyone.",
+  },
+  {
+    title: "SEO & discoverability",
+    description: "Structured headings, descriptive links, and share-ready metadata boost search visibility.",
+  },
+  {
+    title: "Responsive craft",
+    description: "Layouts adapt fluidly from mobile to desktop so the marketplace feels native everywhere.",
+  },
+];
+
 export default function HomePage() {
   return (
     <main className="home-page">
@@ -276,6 +295,25 @@ export default function HomePage() {
           {seoHighlights.map((highlight) => (
             <article key={highlight} className="card">
               <p className="muted">{highlight}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="section">
+        <div className="section-header">
+          <div>
+            <p className="eyebrow">Crafted with care</p>
+            <h2>Built to meet modern web standards</h2>
+            <p className="section-subtext">
+              We prioritize responsive layouts, inclusive design, and search-ready content so shoppers and sellers feel confident using the platform.
+            </p>
+          </div>
+        </div>
+        <div className="card-grid">
+          {qualityPrinciples.map((principle) => (
+            <article key={principle.title} className="card">
+              <h3>{principle.title}</h3>
+              <p className="muted">{principle.description}</p>
             </article>
           ))}
         </div>

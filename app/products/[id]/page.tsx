@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ReviewSection } from "@/components/review-section";
 
 const productDetails = {
   "ceramic-mug": {
@@ -114,6 +115,8 @@ export default function ProductDetailPage({
           </Link>
         </section>
       </div>
+
+      <ReviewSection productName={product.name} />
     </main>
   );
 }
