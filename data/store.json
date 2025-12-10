@@ -1,0 +1,140 @@
+{
+  "products": [
+    {
+      "id": "ceramic-mug",
+      "name": "Hand-thrown Ceramic Mug",
+      "price": 32,
+      "rating": 4.5,
+      "reviews": 2,
+      "category": "Ceramics",
+      "status": "New kiln batch",
+      "seller": "Clay & Co.",
+      "description": "Wheel-thrown mug finished in a matte sand glaze with a comfortable thumb-rest handle.",
+      "highlights": ["Stoneware clay", "Dishwasher safe", "12oz capacity", "Made in small batches"],
+      "image": "/products/ceramic-mug.jpg"
+    },
+    {
+      "id": "woven-throw",
+      "name": "Handwoven Throw Blanket",
+      "price": 85,
+      "rating": 5,
+      "reviews": 1,
+      "category": "Textiles",
+      "status": "Winter drop",
+      "seller": "Threaded Stories",
+      "description": "Cozy cotton-wool blend throw with a chevron weave and hand-knotted fringe.",
+      "highlights": ["Ethically sourced fibers", "50 x 60 inches", "Machine washable", "Naturally dyed"],
+      "image": "/products/woven-throw.jpg"
+    },
+    {
+      "id": "wall-hanging",
+      "name": "Embroidered Wall Hanging",
+      "price": 58,
+      "rating": 5,
+      "reviews": 1,
+      "category": "Art & Prints",
+      "status": "Limited run",
+      "seller": "Threaded Stories",
+      "description": "Botanical-inspired embroidery on organic linen, finished with a walnut dowel for easy hanging.",
+      "highlights": ["Organic linen", "Hand-stitched", "Ready to hang", "Limited run of 25"],
+      "image": "/products/wall-hanging.jpg"
+    },
+    {
+      "id": "candle-trio",
+      "name": "Woodland Soy Candle Trio",
+      "price": 42,
+      "rating": 5,
+      "reviews": 1,
+      "category": "Candles",
+      "status": "Bestseller",
+      "seller": "Willow & Wick",
+      "description": "Set of three clean-burning soy candles in cedar, pine, and amber scents inspired by the woods.",
+      "highlights": ["100% soy wax", "Reusable glass vessels", "Phthalate-free oils", "45+ hour burn"],
+      "image": "/products/candle-trio.jpg"
+    },
+    {
+      "id": "silver-hoops",
+      "name": "Sterling Silver Hoop Set",
+      "price": 44,
+      "rating": 5,
+      "reviews": 1,
+      "category": "Jewelry",
+      "status": "Editor's pick",
+      "seller": "North Star Metals",
+      "description": "Three-pair set of hand-shaped sterling hoops in petite, classic, and bold sizes.",
+      "highlights": ["925 sterling silver", "Hypoallergenic", "Gift-ready packaging", "Lifetime polish"],
+      "image": "/products/silver-hoops.jpg"
+    },
+    {
+      "id": "planter",
+      "name": "Textured Stoneware Planter",
+      "price": 48,
+      "rating": 4,
+      "reviews": 1,
+      "category": "Home Decor",
+      "status": "Small batch",
+      "seller": "Clay & Co.",
+      "description": "Footed planter with carved texture and drainage dish for happy houseplants.",
+      "highlights": ["Fits 6in pots", "Includes drainage", "Matte eggshell glaze", "Small batch"],
+      "image": "/products/planter.jpg"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "productId": "ceramic-mug",
+      "author": "Avery M.",
+      "rating": 5,
+      "comment": "Beautifully made and thoughtfully packaged. The texture feels amazing in hand!",
+      "createdAt": "2024-05-20T12:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "productId": "ceramic-mug",
+      "author": "Jordan P.",
+      "rating": 4,
+      "comment": "Loved the craftsmanship. Shipping was quick and the seller answered my questions fast.",
+      "createdAt": "2024-05-15T12:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "productId": "woven-throw",
+      "author": "Taylor Q.",
+      "rating": 5,
+      "comment": "The throw is soft and warm. The pattern is gorgeous in person.",
+      "createdAt": "2024-05-10T12:00:00.000Z"
+    },
+    {
+      "id": "4",
+      "productId": "wall-hanging",
+      "author": "Devon L.",
+      "rating": 5,
+      "comment": "Intricate stitching and beautiful colors. Looks perfect in my hallway.",
+      "createdAt": "2024-05-08T12:00:00.000Z"
+    },
+    {
+      "id": "5",
+      "productId": "candle-trio",
+      "author": "Casey R.",
+      "rating": 5,
+      "comment": "All three scents are wonderful and the jars look great on my shelf.",
+      "createdAt": "2024-05-06T12:00:00.000Z"
+    },
+    {
+      "id": "6",
+      "productId": "silver-hoops",
+      "author": "Morgan S.",
+      "rating": 5,
+      "comment": "Comfortable to wear and they shine beautifully. Excellent set.",
+      "createdAt": "2024-05-04T12:00:00.000Z"
+    },
+    {
+      "id": "7",
+      "productId": "planter",
+      "author": "Jamie F.",
+      "rating": 4,
+      "comment": "Lovely planter with great drainage. Looks amazing with my monstera!",
+      "createdAt": "2024-05-02T12:00:00.000Z"
+    }
+  ]
+}

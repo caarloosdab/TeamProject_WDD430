@@ -1,64 +1,11 @@
-import { ProductCatalog, type Product } from "@/components/product-catalog";
+import { ProductCatalog } from "@/components/product-catalog";
+import { ProductForm } from "@/components/product-form";
+import { getSession } from "@/lib/auth";
+import { listProducts } from "@/lib/data-store";
 
-const products: Product[] = [
-  {
-    id: "ceramic-mug",
-    name: "Hand-thrown Ceramic Mug",
-    price: 32,
-    rating: 4.8,
-    reviews: 23,
-    category: "Ceramics",
-    status: "New kiln batch",
-  },
-  {
-    id: "woven-throw",
-    name: "Handwoven Throw Blanket",
-    price: 85,
-    rating: 4.7,
-    reviews: 9,
-    category: "Textiles",
-    status: "Winter drop",
-  },
-  {
-    id: "wall-hanging",
-    name: "Embroidered Wall Hanging",
-    price: 58,
-    rating: 5,
-    reviews: 12,
-    category: "Art & Prints",
-    status: "Limited run",
-  },
-  {
-    id: "candle-trio",
-    name: "Woodland Soy Candle Trio",
-    price: 42,
-    rating: 5,
-    reviews: 31,
-    category: "Candles",
-    status: "Bestseller",
-  },
-  {
-    id: "silver-hoops",
-    name: "Sterling Silver Hoop Set",
-    price: 44,
-    rating: 4.9,
-    reviews: 17,
-    category: "Jewelry",
-    status: "Editor's pick",
-  },
-  {
-    id: "planter",
-    name: "Textured Stoneware Planter",
-    price: 48.00,
-    rating: 4.6,
-    reviews: 8,
-    category: "Home Decor",
-    status: "Small batch",
-  },
-];
+export default async function ProductsPage() {
+  const [products, session] = await Promise.all([listProducts(), getSession()]);
 
-
-export default function ProductsPage() {
   return (
     <main className="page-shell">
       <header className="page-header">
@@ -70,6 +17,7 @@ export default function ProductsPage() {
         </p>
       </header>
 
+      <ProductForm canSubmit={Boolean(session)} />
       <ProductCatalog products={products} />
     </main>
   );

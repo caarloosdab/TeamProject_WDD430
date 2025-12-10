@@ -11,6 +11,8 @@ export type Product = {
   reviews: number;
   category: string;
   status: string;
+  image?: string;
+  seller?: string;
 };
 
 const currency = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
@@ -92,7 +94,11 @@ export function ProductCatalog({ products }: { products: Product[] }) {
         <div className="product-grid">
           {filteredProducts.map((product) => (
             <article key={product.id} className="product-card" aria-label={`${product.name} listing`}>
-              <div className="product-image" />
+              <div
+                className="product-image"
+                style={product.image ? { backgroundImage: `url(${product.image})` } : undefined}
+                aria-label={`Image of ${product.name}`}
+              />
               <div className="product-meta">
                 <span className="pill">{product.category}</span>
                 <h3>{product.name}</h3>
