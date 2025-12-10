@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Two hand-thrown ceramic mugs on rustic teal boards">
+  <defs>
+    <linearGradient id="clay" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d9c7b0" />
+      <stop offset="100%" stop-color="#b28c6b" />
+    </linearGradient>
+    <pattern id="grain" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0 10h20" stroke="#5c8fa3" stroke-width="2" stroke-opacity="0.3" />
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#3f7a8c" />
+  <rect width="800" height="600" fill="url(#grain)" opacity="0.35" />
+  <g transform="translate(130 160)">
+    <ellipse cx="190" cy="290" rx="170" ry="30" fill="#1b5261" opacity="0.35" />
+    <ellipse cx="430" cy="310" rx="155" ry="28" fill="#1b5261" opacity="0.35" />
+    <g transform="rotate(-12 220 200)">
+      <path d="M120 70c0-25 110-25 140 0l20 170c2 18-25 35-90 35s-92-18-90-35z" fill="url(#clay)" stroke="#8f6b4f" stroke-width="6" stroke-linejoin="round" />
+      <ellipse cx="190" cy="70" rx="68" ry="24" fill="#f6efe6" stroke="#8f6b4f" stroke-width="6" />
+      <ellipse cx="190" cy="90" rx="60" ry="15" fill="#d7c3a6" />
+      <path d="M270 135c40 5 58 34 48 70-12 43-60 54-92 42l8-32c18 6 42-6 47-23 5-18-8-32-25-35z" fill="#c9ae91" stroke="#8f6b4f" stroke-width="6" />
+      <path d="M170 250c-24 8-40 22-48 42" stroke="#f7f0e8" stroke-width="10" stroke-linecap="round" opacity="0.8" />
+    </g>
+    <g transform="translate(260 70)">
+      <path d="M180 120c0-25 120-25 150 0l20 170c3 21-28 40-95 40s-100-17-95-40z" fill="url(#clay)" stroke="#8f6b4f" stroke-width="6" />
+      <ellipse cx="255" cy="120" rx="72" ry="26" fill="#f6efe6" stroke="#8f6b4f" stroke-width="6" />
+      <ellipse cx="255" cy="140" rx="64" ry="16" fill="#d7c3a6" />
+      <path d="M360 190c45-2 74 26 70 65-4 43-47 68-86 58l4-30c22 6 49-13 50-36 2-22-18-37-43-33z" fill="#c9ae91" stroke="#8f6b4f" stroke-width="6" />
+      <path d="M260 250c28 10 44 24 52 44" stroke="#f7f0e8" stroke-width="12" stroke-linecap="round" opacity="0.8" />
+    </g>
+  </g>
+</svg>

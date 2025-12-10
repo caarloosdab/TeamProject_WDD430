@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Neutral woven throw blanket draped over a white chair">
+  <defs>
+    <linearGradient id="loom" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f7f2e8" />
+      <stop offset="100%" stop-color="#e5ddd0" />
+    </linearGradient>
+    <pattern id="weave" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0 10h20" stroke="#c7b8a4" stroke-width="3" stroke-opacity="0.6" />
+      <path d="M10 0v20" stroke="#c7b8a4" stroke-width="3" stroke-opacity="0.4" />
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#f4f1ea" />
+  <rect x="520" y="130" width="160" height="320" rx="12" ry="12" fill="#f0e9de" />
+  <rect x="180" y="100" width="320" height="420" rx="14" ry="14" fill="#ffffff" stroke="#dcd4c7" stroke-width="6" />
+  <rect x="210" y="120" width="260" height="380" rx="12" ry="12" fill="#fdfbf7" />
+  <path d="M240 130c160 40 180 150 140 260-8 22-18 46-8 70l-80 10c-30-80-80-90-120-40l-38-22c32-90 58-190 106-278z" fill="url(#loom)" stroke="#c9bdaa" stroke-width="6" />
+  <path d="M240 130c100 60 150 160 110 280" fill="none" stroke="#bfb0a0" stroke-width="10" stroke-linecap="round" opacity="0.8" />
+  <path d="M260 220c90 20 120 80 90 180" fill="none" stroke="#bfb0a0" stroke-width="12" stroke-linecap="round" opacity="0.6" />
+  <path d="M220 420c140-10 200 30 200 30" fill="none" stroke="#bfb0a0" stroke-width="12" stroke-linecap="round" opacity="0.6" />
+  <rect x="245" y="250" width="220" height="180" fill="url(#weave)" opacity="0.7" />
+  <g fill="#d2c5b7">
+    <rect x="250" y="500" width="10" height="60" />
+    <rect x="270" y="500" width="10" height="60" />
+    <rect x="290" y="500" width="10" height="60" />
+    <rect x="310" y="500" width="10" height="60" />
+    <rect x="330" y="500" width="10" height="60" />
+    <rect x="350" y="500" width="10" height="60" />
+    <rect x="370" y="500" width="10" height="60" />
+    <rect x="390" y="500" width="10" height="60" />
+    <rect x="410" y="500" width="10" height="60" />
+    <rect x="430" y="500" width="10" height="60" />
+  </g>
+</svg>

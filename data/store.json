@@ -16,7 +16,7 @@
         "12oz capacity",
         "Made in small batches"
       ],
-      "image": "/products/ceramic-mug.jpg"
+      "image": "/products/ceramic-mug.svg"
     },
     {
       "id": "woven-throw",
@@ -34,7 +34,7 @@
         "Machine washable",
         "Naturally dyed"
       ],
-      "image": "/products/woven-throw.jpg"
+      "image": "/products/woven-throw.svg"
     },
     {
       "id": "wall-hanging",
@@ -52,7 +52,7 @@
         "Ready to hang",
         "Limited run of 25"
       ],
-      "image": "/products/wall-hanging.jpg"
+      "image": "/products/wall-hanging.svg"
     },
     {
       "id": "candle-trio",
@@ -70,7 +70,7 @@
         "Phthalate-free oils",
         "45+ hour burn"
       ],
-      "image": "/products/candle-trio.jpg"
+      "image": "/products/candle-trio.svg"
     },
     {
       "id": "silver-hoops",
@@ -88,7 +88,7 @@
         "Gift-ready packaging",
         "Lifetime polish"
       ],
-      "image": "/products/silver-hoops.jpg"
+      "image": "/products/silver-hoops.svg"
     },
     {
       "id": "planter",
@@ -106,7 +106,7 @@
         "Matte eggshell glaze",
         "Small batch"
       ],
-      "image": "/products/planter.jpg"
+      "image": "/products/planter.svg"
     }
   ],
   "reviews": [
