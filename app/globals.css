@@ -1,12 +1,12 @@
 :root {
   --color-bg: #faf4ec;
   --color-card: #f1e4d2;
-  --color-primary: #c26a4a;
+  --color-primary: #7e412a;
   --color-primary-dark: #9b4e32;
   --color-secondary: #315c4f;
   --color-accent: #d8a657;
   --color-text: #2b2b2b;
-  --color-text-muted: #7a6e63;
+  --color-text-muted: #4e4541;
 }
 
 body {
