@@ -16,7 +16,7 @@ export async function SiteHeader() {
       <nav className="site-header__nav" aria-label="Primary">
         <Link href="/products">Products</Link>
         <Link href="/sellers">Sellers</Link>
-        <Link href="/auth/register">Join</Link>
+        {session ? <Link href="/profile">Profile</Link> : <Link href="/auth/register">Join</Link>}
       </nav>
       <div className="site-header__actions">
         {session ? (

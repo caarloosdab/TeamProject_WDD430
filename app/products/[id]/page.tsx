@@ -1,64 +1,20 @@
 import Link from "next/link";
 import { ReviewSection } from "@/components/review-section";
+import { getSession } from "@/lib/auth";
+import { getProductById, listReviews } from "@/lib/data-store";
 
-const productDetails = {
-  "ceramic-mug": {
-    name: "Hand-thrown Ceramic Mug",
-    price: "$32.00",
-    seller: "Clay & Co.",
-    description:
-      "Wheel-thrown mug finished in a matte sand glaze with a comfortable thumb-rest handle.",
-    highlights: ["Stoneware clay", "Dishwasher safe", "12oz capacity", "Made in small batches"],
-  },
-  "woven-throw": {
-    name: "Handwoven Throw Blanket",
-    price: "$85.00",
-    seller: "Threaded Stories",
-    description:
-      "Cozy cotton-wool blend throw with a chevron weave and hand-knotted fringe.",
-    highlights: ["Ethically sourced fibers", "50 x 60 inches", "Machine washable", "Naturally dyed"],
-  },
-  "wall-hanging": {
-    name: "Embroidered Wall Hanging",
-    price: "$58.00",
-    seller: "Threaded Stories",
-    description:
-      "Botanical-inspired embroidery on organic linen, finished with a walnut dowel for easy hanging.",
-    highlights: ["Organic linen", "Hand-stitched", "Ready to hang", "Limited run of 25"],
-  },
-  "candle-trio": {
-    name: "Woodland Soy Candle Trio",
-    price: "$42.00",
-    seller: "Willow & Wick",
-    description:
-      "Set of three clean-burning soy candles in cedar, pine, and amber scents inspired by the woods.",
-    highlights: ["100% soy wax", "Reusable glass vessels", "Phthalate-free oils", "45+ hour burn"],
-  },
-  "silver-hoops": {
-    name: "Sterling Silver Hoop Set",
-    price: "$44.00",
-    seller: "North Star Metals",
-    description:
-      "Three-pair set of hand-shaped sterling hoops in petite, classic, and bold sizes.",
-    highlights: ["925 sterling silver", "Hypoallergenic", "Gift-ready packaging", "Lifetime polish"],
-  },
-  planter: {
-    name: "Textured Stoneware Planter",
-    price: "$48.00",
-    seller: "Clay & Co.",
-    description: "Footed planter with carved texture and drainage dish for happy houseplants.",
-    highlights: ["Fits 6in pots", "Includes drainage", "Matte eggshell glaze", "Small batch"],
-  },
-} as const;
+const currency = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
 
-type ProductId = keyof typeof productDetails;
-
-export default function ProductDetailPage({
+export default async function ProductDetailPage({
   params,
 }: {
   params: { id: string };
 }) {
-  const product = productDetails[params.id as ProductId];
+  const [product, reviews, session] = await Promise.all([
+    getProductById(params.id),
+    listReviews(params.id),
+    getSession(),
+  ]);
 
   if (!product) {
     return (
@@ -80,7 +36,7 @@ export default function ProductDetailPage({
         <p className="eyebrow">Product detail</p>
         <h2>{product.name}</h2>
         <div className="detail-meta">
-          <span className="pill">{product.price}</span>
+          <span className="pill">{currency.format(product.price)}</span>
           <span className="pill pill-secondary">By {product.seller}</span>
         </div>
         <p>{product.description}</p>
@@ -89,13 +45,17 @@ export default function ProductDetailPage({
       <div className="grid-two">
         <section className="card">
           <h3>Highlights</h3>
-          <ul className="list-inline">
-            {product.highlights.map((highlight) => (
-              <li key={highlight} className="pill">
-                {highlight}
-              </li>
-            ))}
-          </ul>
+          {product.highlights?.length ? (
+            <ul className="list-inline">
+              {product.highlights.map((highlight) => (
+                <li key={highlight} className="pill">
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="muted">Seller didn’t add highlights yet.</p>
+          )}
         </section>
         <section className="card">
           <h3>About the maker</h3>
@@ -116,7 +76,14 @@ export default function ProductDetailPage({
         </section>
       </div>
 
-      <ReviewSection productName={product.name} />
+      <ReviewSection
+        productId={product.id}
+        productName={product.name}
+        initialReviews={reviews}
+        averageRating={product.rating}
+        reviewCount={product.reviews}
+        canReview={Boolean(session)}
+      />
     </main>
   );
 }

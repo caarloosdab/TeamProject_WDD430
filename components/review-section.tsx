@@ -1,44 +1,39 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
-export type Review = {
-  id: string;
-  author: string;
-  rating: number;
-  comment: string;
-  createdAt: string;
+import { addReviewAction, type ReviewActionState } from "@/app/actions/reviews";
+import type { ReviewRecord } from "@/lib/data-store";
+
+type ReviewSectionProps = {
+  productId: string;
+  productName: string;
+  initialReviews: ReviewRecord[];
+  averageRating: number;
+  reviewCount: number;
+  canReview: boolean;
 };
 
-const initialReviews: Review[] = [
-  {
-    id: "1",
-    author: "Avery M.",
-    rating: 5,
-    comment: "Beautifully made and thoughtfully packaged. The texture feels amazing in hand!",
-    createdAt: "2 days ago",
-  },
-  {
-    id: "2",
-    author: "Jordan P.",
-    rating: 4,
-    comment: "Loved the craftsmanship. Shipping was quick and the seller answered my questions fast.",
-    createdAt: "1 week ago",
-  },
-];
+const initialState: ReviewActionState = {};
 
-export function ReviewSection({ productName }: { productName: string }) {
-  const [reviews, setReviews] = useState<Review[]>(initialReviews);
+export function ReviewSection({
+  productId,
+  productName,
+  initialReviews,
+  averageRating: initialAverage,
+  reviewCount: initialCount,
+  canReview,
+}: ReviewSectionProps) {
+  const [reviews, setReviews] = useState<ReviewRecord[]>(initialReviews);
   const [rating, setRating] = useState(5);
   const [comment, setComment] = useState("");
-  const [author, setAuthor] = useState("");
-  const [status, setStatus] = useState("");
+  const [state, setState] = useState<ReviewActionState>(initialState);
 
   const averageRating = useMemo(() => {
-    if (!reviews.length) return 0;
+    if (!reviews.length) return initialAverage;
     const total = reviews.reduce((sum, review) => sum + review.rating, 0);
     return Number((total / reviews.length).toFixed(1));
-  }, [reviews]);
+  }, [initialAverage, reviews]);
 
   const ratingBreakdown = useMemo(() => {
     return [5, 4, 3, 2, 1].map((score) => {
@@ -51,27 +46,17 @@ export function ReviewSection({ productName }: { productName: string }) {
     });
   }, [reviews]);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (!comment.trim()) {
-      setStatus("Please add a short review before submitting.");
-      return;
+  async function handleSubmit(formData: FormData) {
+    const result = await addReviewAction(initialState, formData);
+    setState(result);
+    if (result.review) {
+      setReviews((prev) => [result.review!, ...prev]);
+      setComment("");
+      setRating(5);
     }
-
-    const newReview: Review = {
-      id: crypto.randomUUID(),
-      author: author.trim() || "Guest reviewer",
-      rating,
-      comment: comment.trim(),
-      createdAt: "Just now",
-    };
-
-    setReviews([newReview, ...reviews]);
-    setComment("");
-    setAuthor("");
-    setRating(5);
-    setStatus("Thanks for sharing your feedback! Your review is now visible to the community.");
   }
+
+  const totalReviews = reviews.length || initialCount;
 
   return (
     <section className="review-section" aria-labelledby="reviews-heading">
@@ -83,7 +68,7 @@ export function ReviewSection({ productName }: { productName: string }) {
         </div>
         <div className="review-score" aria-label={`Average rating ${averageRating} out of 5`}>
           <strong>{averageRating.toFixed(1)}</strong>
-          <span className="muted">/ 5 average from {reviews.length} reviews</span>
+          <span className="muted">/ 5 average from {totalReviews} reviews</span>
         </div>
       </div>
 
@@ -107,7 +92,7 @@ export function ReviewSection({ productName }: { productName: string }) {
                 <div className="pill pill-secondary">{review.rating} / 5</div>
                 <div>
                   <h4>{review.author}</h4>
-                  <p className="muted">{review.createdAt}</p>
+                  <p className="muted">{formatDate(review.createdAt)}</p>
                 </div>
               </div>
               <p>{review.comment}</p>
@@ -116,18 +101,8 @@ export function ReviewSection({ productName }: { productName: string }) {
         </div>
       </div>
 
-      <form className="review-form" onSubmit={handleSubmit} aria-label={`Leave a review for ${productName}`}>
-        <div className="input-group">
-          <label htmlFor="reviewer">Name (optional)</label>
-          <input
-            id="reviewer"
-            name="reviewer"
-            type="text"
-            placeholder="Tell us who you are"
-            value={author}
-            onChange={(event) => setAuthor(event.target.value)}
-          />
-        </div>
+      <form className="review-form" action={handleSubmit} aria-label={`Leave a review for ${productName}`}>
+        <input type="hidden" name="productId" value={productId} />
 
         <div className="input-group">
           <span className="label">Rating</span>
@@ -140,6 +115,7 @@ export function ReviewSection({ productName }: { productName: string }) {
                   value={score}
                   checked={rating === score}
                   onChange={() => setRating(score)}
+                  disabled={!canReview}
                 />
                 <span>{score} star{score > 1 ? "s" : ""}</span>
               </label>
@@ -151,24 +127,36 @@ export function ReviewSection({ productName }: { productName: string }) {
           <label htmlFor="review">Share your experience</label>
           <textarea
             id="review"
-            name="review"
+            name="comment"
             rows={4}
             placeholder={`What did you love about this ${productName.toLowerCase()}?`}
             value={comment}
             onChange={(event) => setComment(event.target.value)}
+            disabled={!canReview}
             required
           />
         </div>
 
-        <button type="submit" className="btn btn-primary btn-full">
-          Post review
+        <button type="submit" className="btn btn-primary btn-full" disabled={!canReview}>
+          {canReview ? "Post review" : "Sign in to review"}
         </button>
-        {status && (
+        {state.error && (
           <p className="muted" role="status" aria-live="polite">
-            {status}
+            {state.error}
+          </p>
+        )}
+        {state.success && (
+          <p className="muted" role="status" aria-live="polite">
+            {state.success}
           </p>
         )}
       </form>
     </section>
   );
+}
+
+function formatDate(value: string) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return new Intl.DateTimeFormat("en", { dateStyle: "medium" }).format(date);
 }

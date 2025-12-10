@@ -1,17 +1,11 @@
 import type { MetadataRoute } from "next";
 
-const routes = [
-  "/",
-  "/products",
-  "/sellers",
-  "/auth/login",
-  "/auth/register",
-];
+import { listProducts } from "@/lib/data-store";
 
-const productIds = ["ceramic-mug", "woven-throw", "wall-hanging", "candle-trio", "silver-hoops", "planter"];
+const routes = ["/", "/products", "/sellers", "/auth/login", "/auth/register", "/profile"];
 const sellerIds = ["clay-co", "threaded-stories", "willow-wick", "north-star-metals"];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://handcrafted-haven.example.com";
 
   const staticRoutes = routes.map((route) => ({
@@ -20,8 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "/" ? 1 : 0.8,
   }));
 
-  const productRoutes = productIds.map((id) => ({
-    url: `${baseUrl}/products/${id}`,
+  const products = await listProducts();
+  const productRoutes = products.map((product) => ({
+    url: `${baseUrl}/products/${product.id}`,
     changefreq: "weekly",
     priority: 0.7,
   }));
